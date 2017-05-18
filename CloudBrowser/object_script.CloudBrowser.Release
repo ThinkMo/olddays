@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\webview.o
+./release\obj_openvlc.o
+./release\titlewidget.o
+./release\Log.o
+./release\moc_mainwindow.o
+./release\moc_webview.o
+./release\moc_obj_openvlc.o
+./release\moc_titlewidget.o
+./release\qrc_file.o
+);
