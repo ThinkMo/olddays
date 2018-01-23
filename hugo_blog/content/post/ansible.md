@@ -26,7 +26,7 @@ showDate = true
 
   ```
   [jumpserver]
-  44.33.22.11:1024	ansible_ssh_user=xxx  # xxx用户ssh端口1024
+  44.33.22.11:1024	ansible_ssh_user=xxx  # xxx用户ssh端口1024，2.0后参数变为ansible_user
   [other]
   192.168.1.[2:255]    # 范围2-255
   [localhost]
@@ -66,6 +66,43 @@ showDate = true
   # 信息收集
   ansible jumpserver -m setup
   ```
+- 常用配置项
+
+  ```
+  配置项读取顺序如下：
+  * ANSIBLE_CONFIG (一个环境变量)
+  * ansible.cfg (位于当前目录中)
+  * .ansible.cfg (位于家目录中)
+  * /etc/ansible/ansible.cfg
+
+  常用配置项：
+  [defaults]
+  log_path = ./ansible.log    # 日志路径
+  remote_user = admin         # ssh用户
+  remote_port = 22            # ssh端口
+  gathering = explicit
+  roles_path = roles
+  retry_files_save_path = /tmp/
+  host_key_checking = False
+  vault_password_file = vault-pass
+  forks = 100                 # 并行进程数
+  #private_key_file=/path/to/file.pem       # 私钥
+  action_plugins = ./plugins/actions
+  filter_plugins = ./plugins/filters
+  callback_plugins = ./plugins/callbacks
+  vars_plugins = ./plugins/vars
+  library = ./library
+
+  ansible_managed = This file is managed by Ansible.%n template: {file}  # 修改报告
+
+  [ssh_connection]
+  ssh_args = -o StrictHostKeyChecking=no -o ControlMaster=auto -o ControlPersist=30m
+  pipelining=true
+
+  [privilege_escalation]
+  become=True           # 提权
+  ```
+  [所有配置](http://docs.ansible.com/ansible/latest/intro_configuration.html)
 
 - 配置优先级
 
@@ -85,22 +122,39 @@ showDate = true
   ```yaml
   ---
   - name: install and start httpd   # task名称
-    hosts: webservers               # hosts主机
+    hosts: webservers               # hosts主机组pattern
     remote_user: web                # 登录用户
     become: yes                     # 用户切换
     become_user: root
     tasks:                          # 子task
       - name: install and start httpd
-        apt:
+        apt:                        # 模块 幂等
           name: httpd
           state: present
-          handlers:                 # handlers在task完成时被执行
+          handlers:                 # handlers在task完成时被触发执行
             - name: start httpd
               service: name=httpd state=started
   ```
 
   通过`ansible-playbook playbook.yml -f 10`来执行playbook，在执行之前可以运行`ansible-playbook playbook.yaml  --syntax-check`进行语法检查
 
+
+  ```
+  handlers:
+    - name: restart memcached
+      service: name=memcached state=restarted
+      listen: "restart web services"
+    - name: restart apache
+      service: name=apache state=restarted
+      listen: "restart web services"
+
+  tasks:
+    - name: restart everything
+      command: echo "this task will restart the web services"
+      notify: "restart web services"
+  ```
+  ansible 2.2开始，handlers可以监听事件，tasks可以通过notify事件来触发handlers，如上例。
+ 
 ##### Playbook高阶
 
  - Role
@@ -117,7 +171,7 @@ showDate = true
     	staging/
     	testing/
     		hosts           # 主机列表
-    		group_vars/     # 全局变量
+    		group_vars/     # 组变量
     		host_vars/      # 主机变量
     library/                # 脚本库
     plugins/
@@ -126,7 +180,8 @@ showDate = true
     		tasks/
     		templates/
     		defaults/
-    		meta/
+    		meta/            # 依赖
+    		handlers/        
     	app/
     playbooks/
         xxx.yaml            # 由可复用roles组成
