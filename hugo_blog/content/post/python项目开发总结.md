@@ -99,4 +99,34 @@ categories = [ "python" ]
 			
 	每个test的运行顺序是  setUp->testxxx->tearDown->setUp->testxxx->....
 		
+#### django发送内嵌图片的email
 
+    # email_with_picture.html
+    
+    {% for item in data %}
+    <p>item title</p>
+    <div>
+        <img src="cid:{{item}}"/>
+    </div>
+    {% endfor %}
+
+    # python代码片段
+    from django.core.mail import EmailMultiAlternatives
+    from django.template.loader import render_to_string
+
+    subject = u"邮件title"
+    files = {'picturea': 'a.png', 'pictureb': 'b.png'}
+    render_data = files.keys()
+    html = render_to_string('email_with_picture.html', {"data": render_data})  # 渲染模版
+    msg = EmailMultiAlternatives(subject, html, 'tryit0714@gmail.com', ['a@126.com', 'b@yahoo.com'])
+    msg.content_subtype = 'html'
+    msg.mixed_subtype = 'related'
+    # 增加图片内容到邮件内容
+    for key, filename in files.iteritems():
+        fp = open(filename, 'rb')
+        msg_img = MIMEImage(fp.read())
+        fp.close()
+        content_id = u'<{}>'.format(key.name)
+        msg_img.add_header('Content-ID', content_id.encode('utf8'))
+        msg.attach(msg_img)
+    msg.send()
