@@ -33,7 +33,7 @@ publishDir = "/Users/xiao/forfreedom"
 
 [author]
   name = "游"
-  bio = "Follow Your Heart"
+  bio = "沉下心，多坚持"
   job = "系统工程师"
   location = "杭州"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
