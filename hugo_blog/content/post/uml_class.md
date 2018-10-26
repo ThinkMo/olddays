@@ -25,7 +25,7 @@ categories = [ "基础" ]
         }
 - 图示(一套带箭头的虚线表示)：
 
-![dependency](http://occ9e8dkg.bkt.clouddn.com/image/1/64/c5da58a00cd2fcbf112fa1be3e6b2.png)
+![dependency](https://i.imgur.com/YEvPl94.png)
 
 2、聚合(Aggregation)
 
@@ -41,7 +41,7 @@ categories = [ "基础" ]
         }
 - 图示(一条带空心菱形箭头的直线表示)：
 
-![aggregation](http://occ9e8dkg.bkt.clouddn.com/image/4/2d/e12355088b0e4fb201deec5772760.png)
+![aggregation](https://i.imgur.com/kEE58kL.png)
 
 3、组合(Composition)
 
@@ -57,14 +57,14 @@ categories = [ "基础" ]
         }
 - 图示(一条带实心菱形箭头直线表示):
 
-![composition](http://occ9e8dkg.bkt.clouddn.com/image/a/65/66b285efb154c3d638f874a006f08.png)
+![composition](https://i.imgur.com/XtxE1F6.png)
 
 4、关联(Association)
 
 - 关系：a usage relationship，包含以上三种关系，作为成员变量
 - 图示(一套带箭头的直线表示):
 
-![association](http://occ9e8dkg.bkt.clouddn.com/image/7/4d/d53d5daaf1c53fb39bfb66f40c0b3.png)
+![association](https://i.imgur.com/wM32hw8.png)
 
 5、实现(Realization)
 
@@ -77,7 +77,7 @@ categories = [ "基础" ]
 		}
 - 图示(用一条带空心箭头的虚线表示):
 
-![realization](http://occ9e8dkg.bkt.clouddn.com/image/3/02/8e8cf926f50f551344dbffe284c56.png)
+![realization](https://i.imgur.com/BgiqFcp.png)
 
 6、泛化(Generalization)
 
@@ -90,7 +90,7 @@ categories = [ "基础" ]
 		}
 - 图示(用一条带空心箭头的实线表示):
 
-![generalization](http://occ9e8dkg.bkt.clouddn.com/image/5/6e/f8cd3332f700271df86588a86508d.png)
+![generalization](https://i.imgur.com/9KDZPrP.png)
 
 
 ## 类图表现方式：

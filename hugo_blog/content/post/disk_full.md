@@ -19,9 +19,9 @@ categories = [ "linux" ]
 线上堡垒机系统磁盘根目录/空间使用率100%导致无法添加账号，奇怪的是du查看实际只使用了8G多空间还有40多G，而df查看使用率却是100%，同事找过来让帮忙定位问题。
 
 ## du -h --max-depth=1 -x 查看/目录磁盘占用情况(-x排除挂载的其他磁盘)
-![du](http://occ9e8dkg.bkt.clouddn.com/du.png)
+![du](https://i.imgur.com/OZmT6xt.png)
 ## df查看/磁盘使用率在94%
-![df](http://occ9e8dkg.bkt.clouddn.com/df.png)
+![df](https://i.imgur.com/8xA5AWA.png)
 
 ## du与df机制对比
 
