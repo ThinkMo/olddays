@@ -23,4 +23,4 @@ date = "2017-04-01T18:00:54+08:00"
 - Linux下C/C++环境编程、网络编程
 - Linux内核网络与文件系统 
 - 分布式系统
-- 熟悉Java、Python、Shell
+- 熟悉Java、Python、Go、Shell
