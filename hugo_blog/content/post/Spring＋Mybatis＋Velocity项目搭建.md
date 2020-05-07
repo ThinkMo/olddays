@@ -23,7 +23,7 @@ Spring＋Mybatis＋Velocity项目搭建
 二、新建工程
 
 1. 新建Maven工程，不选Create from archtype提供的工程模版，为了学习从头开始配置工程，点击next设置工程坐标，然后一路到finish。
-![create_project](https://i.imgur.com/zWbwIZc.png)
+![create_project](/images/create_project.png)
 
     	<groupId>red.itech</groupId>
     	<artifactId>blogDemo</artifactId>
@@ -81,18 +81,18 @@ Spring＋Mybatis＋Velocity项目搭建
     	</dependencies>
 2. 增加Spring MVC框架支持
 
-	![add_framework](https://i.imgur.com/5HenoaW.png)
-	![web](https://i.imgur.com/4GRfTnC.png)
-	![springmvc](https://i.imgur.com/cewR7re.png)
+	![add_framework](/images/addframework.png)
+	![web](/images/web.png)
+	![springmvc](/images/springmvc.png)
 	添加完成后对目录结构做一定调整，将web目录移到src/main下并重命名为webapp，调整后结构如下：
 	
-	![struct](https://i.imgur.com/kEtACRH.png)
+	![struct](/images/struct.png)
 
 3. 修改web.xml
 
 	web.xml的作用是配置Spring的DispatcherServlet，DispatcherServlet作为前端控制器，用于用户接口与Servlet间的映射。在web.xml的代码中,org.springframework.web.servlet.DispatcherServlet的实例名称为dispatcher，DispatcherServlet会从dispatcher－servlet.xml文件中加载应用上下文。
 
-	![web.xml](https://i.imgur.com/5Dsxtj2.png)
+	![web.xml](/images/webxml.png)
 
 	修改servlet-mapping中的url-pattern为/表示dispatcher会处理所有请求。
 
@@ -150,7 +150,7 @@ Spring＋Mybatis＋Velocity项目搭建
 
 - 配置运行tomcat
 
-![home](https://i.imgur.com/DAsyecx.png)
+![home](/images/home.png)
 
 四、velocity支持（velocity使前后端分离）
 
@@ -221,9 +221,9 @@ Spring＋Mybatis＋Velocity项目搭建
 		}
 4. 创建模版文件WEB-INF/templates/welcome.vm，测试视图解析器如下
 
-![vm](https://i.imgur.com/bKA13Pu.png)
+![vm](/images/vm.png)
 
-![page](https://i.imgur.com/iZYUFZA.png)
+![page](/images/page.png)
 
 
 五、mybatis支持，mybatis是一种SQL－mapping的ORM实现，将结果转化为POJO(使用mybatis-generator简化实现)

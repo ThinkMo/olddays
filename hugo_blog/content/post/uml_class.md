@@ -25,7 +25,7 @@ categories = [ "基础" ]
         }
 - 图示(一套带箭头的虚线表示)：
 
-![dependency](https://i.imgur.com/YEvPl94.png)
+![dependency](/images/dependency.png)
 
 2、聚合(Aggregation)
 
@@ -41,7 +41,7 @@ categories = [ "基础" ]
         }
 - 图示(一条带空心菱形箭头的直线表示)：
 
-![aggregation](https://i.imgur.com/kEE58kL.png)
+![aggregation](/images/agg.png)
 
 3、组合(Composition)
 
@@ -57,14 +57,14 @@ categories = [ "基础" ]
         }
 - 图示(一条带实心菱形箭头直线表示):
 
-![composition](https://i.imgur.com/XtxE1F6.png)
+![composition](/images/compose.png)
 
 4、关联(Association)
 
 - 关系：a usage relationship，包含以上三种关系，作为成员变量
 - 图示(一套带箭头的直线表示):
 
-![association](https://i.imgur.com/wM32hw8.png)
+![association](/images/associate.png)
 
 5、实现(Realization)
 
@@ -77,7 +77,7 @@ categories = [ "基础" ]
 		}
 - 图示(用一条带空心箭头的虚线表示):
 
-![realization](https://i.imgur.com/BgiqFcp.png)
+![realization](/images/realization.png)
 
 6、泛化(Generalization)
 
@@ -90,7 +90,7 @@ categories = [ "基础" ]
 		}
 - 图示(用一条带空心箭头的实线表示):
 
-![generalization](https://i.imgur.com/9KDZPrP.png)
+![generalization](/images/gen.png)
 
 
 ## 类图表现方式：
@@ -119,10 +119,3 @@ categories = [ "基础" ]
 	/ derived
 	静态属性  下划线标示
 	参数： name:type
-
-
-
-
-
-
-
